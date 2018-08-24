@@ -100,7 +100,12 @@ namespace CPE200Lab1
         {
             if(point == 0)
             {
+                if(element == 0)
+                {
+                    lblDisplay.Text = "0";
+                }
                 lblDisplay.Text += ".";
+                element++;
                 point++;
             }
         }
@@ -108,6 +113,18 @@ namespace CPE200Lab1
         private void btnPercent_Click(object sender, EventArgs e)
         {
             lblDisplay.Text = ((float.Parse(lblDisplay.Text) / 100) * Input1).ToString();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            lblDisplay.Text = "0";
+            Input1 = 0;
+            Input2 = 0;
+            element = 0;
+            round = 0;
+            Operator = 0;
+            point = 0;
+            equal = false;
         }
     }
 }
