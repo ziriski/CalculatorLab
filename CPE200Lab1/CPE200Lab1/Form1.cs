@@ -25,6 +25,7 @@ namespace CPE200Lab1
         int point = 0;
         int equaltime = 1;
         bool equal = false;
+        bool OperatorClick = false;
 
         private void btnX_Click(object sender, EventArgs e)
         {
@@ -38,6 +39,7 @@ namespace CPE200Lab1
                 lblDisplay.Text += btn.Text;
                 element++;
             }
+            OperatorClick = false;
         }
 
         private void btn0_Click(object sender, EventArgs e)
@@ -51,6 +53,7 @@ namespace CPE200Lab1
             {
                 lblDisplay.Text += "0";
             }
+            OperatorClick = false;
         }
 
         private void btnEqual_Click(object sender, EventArgs e)
@@ -114,15 +117,20 @@ namespace CPE200Lab1
 
         private void btnPlus_Click(object sender, EventArgs e)
         {
+            if (OperatorClick)
+            {
+                Operator = 1;
+            }
             if (round == 0 || equal)
             {
+                OperatorClick = true;
                 Input1 = float.Parse(lblDisplay.Text);
                 round++;
                 Operator = 1;
                 equal = false;
                 equaltime = 1;
             }
-            else
+            else if (OperatorClick == false)
             {
                 Input2 = float.Parse(lblDisplay.Text);
                 switch (Operator)
@@ -149,15 +157,20 @@ namespace CPE200Lab1
 
         private void btnMinus_Click(object sender, EventArgs e)
         {
+            if(OperatorClick)
+            {
+                Operator = 2;
+            }
             if (round == 0 || equal)
             {
+                OperatorClick = true;
                 Input1 = float.Parse(lblDisplay.Text);
                 round++;
                 Operator = 2;
                 equal = false;
                 equaltime = 1;
             }
-            else
+            else if (OperatorClick == false)
             {
                 Input2 = float.Parse(lblDisplay.Text);
                 switch (Operator)
@@ -184,15 +197,20 @@ namespace CPE200Lab1
 
         private void btnMultiply_Click(object sender, EventArgs e)
         {
+            if (OperatorClick)
+            {
+                Operator = 3;
+            }
             if (round == 0 || equal)
             {
+                OperatorClick = true;
                 Input1 = float.Parse(lblDisplay.Text);
                 round++;
                 Operator = 3;
                 equal = false;
                 equaltime = 1;
             }
-            else
+            else if (OperatorClick == false)
             {
                 Input2 = float.Parse(lblDisplay.Text);
                 switch (Operator)
@@ -219,15 +237,20 @@ namespace CPE200Lab1
 
         private void btnDivide_Click(object sender, EventArgs e)
         {
+            if (OperatorClick)
+            {
+                Operator = 4;
+            }
             if (round == 0 || equal)
             {
+                OperatorClick = true;
                 Input1 = float.Parse(lblDisplay.Text);
                 round++;
                 Operator = 4;
                 equal = false;
                 equaltime = 1;
             }
-            else
+            else if (OperatorClick == false)
             {
                 Input2 = float.Parse(lblDisplay.Text);
                 switch (Operator)
