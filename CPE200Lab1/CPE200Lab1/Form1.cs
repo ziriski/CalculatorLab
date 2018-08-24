@@ -16,5 +16,26 @@ namespace CPE200Lab1
         {
             InitializeComponent();
         }
+
+        private void btnX_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            if (lblDisplay.Text == "0")
+            {
+                lblDisplay.Text = "";
+            }
+            if (lblDisplay.Text.Length < 8)
+            {
+                lblDisplay.Text += btn.Text;
+            }
+        }
+
+        private void btn0_Click(object sender, EventArgs e)
+        {
+            if(lblDisplay.Text != "0" && lblDisplay.Text.Length < 8)
+            {
+                lblDisplay.Text += "0";
+            }
+        }
     }
 }
